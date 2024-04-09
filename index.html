@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Generating Multi-hierarchy Scene Graphs for Human-instructed Manipulation Tasks in Open-world Settings">
+  <meta name="keywords" content="Scene Graph">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SceneGraph</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <header class="header">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">Generating Multi-hierarchy Scene Graphs for Human-instructed Manipulation Tasks in Open-world Settings</h1>
+              <!-- h3 class="title is-4 conference-authors" style="color: rgb(0, 102, 255);">......</h3 -->
+              <div class="is-size-5 publication-authors" , style="margin-bottom: 5mm;">
+                <span class="author-block">
+                  Sandeep S. Zachariah<sup>1*</sup>,</span>
+                <span class="author-block">
+                  Aman Tambi<sup>1*</sup>,</span>
+                <span class="author-block">
+                  Moksh Malhotra<sup>1</sup>,</span>
+                <span class="author-block">
+                  P. V. M. Rao<sup>1</sup>,</span>
+                <span class="author-block">
+                  Rohan Paul<sup>1</sup></span>
+              </div>
+
+              <div class="is-size-6 publication-authors" , style="margin-bottom: 8mm;">
+                <span class="author-block"><sup>1</sup>Affiliated with Indian Institute of Technology Delhi,</span>
+                <span class="author-block"><sup>{*}</sup>Indicate equal contributions, </span>
+              </div>
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <!-- <span class="link-block">
+                    <a href="https://arxiv.org/pdf/2402.15767.pdf" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span> -->
+                  <!-- <span class="link-block">
+                    <a href="http://arxiv.org/abs/2402.15767" class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span> -->
+                  <!-- Video Link. -->
+                  <!-- <span class="link-block">
+                    <a href="https://1drv.ms/f/s!AjIGOzSicYxmgQnyyezjnUCMDo3N?e=54ufNt"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                      </span>
+                      <span>Video</span>
+                    </a>
+                  </span> -->
+                  <!-- Code Link. -->
+                  <!-- <span class="link-block">
+                    <a href="https://github.com/phyplan/PhyPlan"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                    </a>
+                  </span> -->
+                  <!-- Code Link. -->
+                  <!-- <span class="link-block">
+                    <a href="https://1drv.ms/f/s!AjIGOzSicYxmcmRXYJJINf42I20?e=XhDGne"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fa fa-database"></i>
+                      </span>
+                      <span>Data</span>
+                    </a>
+                  </span> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </section>
+
+  
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <h2 class="title has-text-centered is-3">Abstract</h2>
+      <div class="columns is-centered is-vcentered" , padding-left: 7%;">
+        <!-- Image Column -->
+        <div>
+          <img src="./static/images/motivation_diagram.png"/>
+        </div>
+        <!-- Text Column -->
+        </div>
+      <div class="content is-four-fifths has-text-justified">
+        <p>
+          For generating viable multi-step plans in robotics, 
+          it is necessary to have a representation scheme for scenes that
+          is both open-set and structured in a way that facilitates local
+          updates when the scene changes. We propose a method for
+          generating open-world multi-perspective scene graphs using
+          foundation models, which can support downstream planning
+          tasks. We demonstrate that our method yields superior re-
+          sults compared to previous works in both open-world object
+          detection and relation extraction, even without any priors.
+          Moreover, we illustrate how the multi-perspective nature of
+          the scene graph aids the planner in devising feasible plans for
+          tasks necessitating reasoning over the spatial arrangements and
+          object category abstractions.
+        </p>
+      </div>
+      
+      </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h2 class="title is-3 has-text-centered">Approach Overview</h2>
+        <div class="columns is-centered is-vcentered" , padding-left: 7%;">
+          <!-- Image Column -->
+          <div>
+            <img src="./static/images/pipeline.png"
+              />
+          </div>
+          <!-- Text Column -->
+          </div>
+        </div>
+        <!-- Subtitle Section -->
+        <!-- <div class="has-text-justified">
+          <h2 class="subtitle">
+            <span class="dnerf">PhyPlan</span> is a novel physics-informed planning framework based on accelerated
+            learning of Physical Reasoning Tasks using Physics Informed Skill Networks
+          </h2>
+        </div> -->
+      
+
+      <!-- <div class="olumns is-centered is-vcentered has-text-justified">
+        <p>
+          <b>Scene Graph pipeline:</b> (few lines about the pipeline)
+        </p>
+      </div> -->
+    </div>
+  </section>
+
+
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Scene Graphs for Planning</h2>
+      <div id="tasks" , class="column has-text-justified">
+        <p>
+          <video id="matting-video" controls playsinline height="100%" style="border-radius: 25px;">
+            <source src="./static/video/plan_rollout.mp4" type="video/mp4">
+          </video>
+        </p>
+      </div>
+      <hr>
+      <!-- <div class="columns is-multiline">
+        <div class="column is-centered is-half">
+          <div class="content">
+            <h3 class="title is-4 has-text-centered">Hierarchical Scene Graph</h3>
+            <p class="has-text-justified">Robot uses the Hierarchical nature of the scene graph to locally update the scene
+              after the execution of an action. (The following video is a placeholder, will be updating it)
+            </p>
+            <video id="matting-video" controls playsinline height="100%" style="border-radius: 25px;">
+              <source src="./static/video/launch.mp4" type="video/mp4">
+            </video>
+            <p class="teaser has-text-justified">
+              Here the robot was update the location and the spatio-depth relations of the objects inside basket after it was pushed to the side.
+            </p>
+          </div>
+        </div>
+
+        <div class="column is-centered is-half">
+          <div class="content">
+            <h3 class="title is-4 has-text-centered">Object Abstraction</h3>
+            <p class="has-text-justified">Robot uses the category abstraction nature of the scene graph to generate plans from 
+              indirect language instructions.(The following video is a placeholder, will be updating it)
+            </p>
+            <video id="matting-video" controls playsinline height="100%" style="border-radius: 25px;">
+              <source src="./static/video/slide.mp4" type="video/mp4">
+            </video>
+            <p class="teaser has-text-justified">
+              Beacuse the scene graph supports category abstraction, the planner was able to generate a plan for the language
+              "remove all the fruits".
+            </p>
+          </div>
+        </div>
+
+       
+        </div>
+      </div> -->
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Results</h2>
+      <h3 class="title is-4">Multi-hierarchical Scene Graphs</h3>
+      <div class="column has-text-justified">
+        <p>
+          The figure shows the scene graph that was generated by our approach for the given robot workspace. The
+          scene graph has 3 perspectives to it - spatio-depth relations, planar relations, and category-wise abstraction. Each node in the scene graph represents an
+          object in the workspace and has attributes such as color and pose. This scene graph supports the execution of tasks like “place the book that is to the right
+          of the basket on the rack”(requires knowledge about the planar relation between the books and the basket and also the ‘onTop’ relation between book and
+          glasses to generate viable plans), “give me something to eat”(requires object category abstraction).
+        </p>
+      </div>
+      <div class="content">
+        <h3 class="title is-4 has-text-centered"><span class="dnerf"></span></h3>
+        <div class="columns is-centered is-vcentered" , padding-left: 7%;">
+          <!-- Image Column -->
+          <div>
+            <img src="./static/images/sg_qualitative_result.png"
+              />
+          </div>
+          <!-- Text Column -->
+          </div>
+      </div>
+      <h3 class="title is-4">Qualitative Comparison with Baselines</h3>
+      <div class="column has-text-justified">
+        <p>
+          The following figure shows the scene graphs generated by both the proposed method and ConceptGraph, alongside the ground truth scene graph.
+        </p>
+      </div>
+      <div class="content">
+        <h3 class="title is-4 has-text-centered"><span class="dnerf"></span></h3>
+        <div class="is-centered" , style="text-align: center; padding-left: 7%;">
+          <!-- Image Column -->
+          <div>
+            <img src="./static/images/qualitative_analysis.png", width="45%", height="auto"
+               />
+          </div>
+          <!-- Text Column -->
+          </div>
+      </div> 
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- <section class="section" id="References">
+    <div class="container is-max-desktop content">
+      <h2 class="title">References</h2>
+      <pre><code>1. [Allen et al., 2020] Kelsey R Allen, Kevin A Smith, and Joshua B Tenenbaum.
+        Rapid trial-and-error learning with simulation supports flexible tool use and physical reasoning.
+        Proceedings of the National Academy of Sciences, 117(47):29302–29310, 2020.</code></pre>
+      <pre><code>2. [Bakhtin et al., 2019] Anton Bakhtin, Laurens van der Maaten, Justin Johnson, Laura Gustafson, and Ross Girshick.
+        Phyre: A new benchmark for physical reasoning.
+        Advances in Neural Information Processing Systems, 32,484 2019.</code></pre>
+    </div>
+  </section> -->
+
+  <!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Citation</h2>
+      <pre><code>@inproceedings{phyplan2024,
+      title     = {PhyPlan: Compositional and Adaptive Physical Task Reasoning with Physics-Informed Skill Networks for Robot Manipulators},
+      author    = {Vagadia, Harshil and Chopra, Mudit and Barnawal, Abhinav and Banerjee, Tamajit and Tuli, Shreshth and Chakraborty, Souvik and Paul, Rohan},
+      booktitle = {},
+      year      = {2024}
+    }</code></pre>
+    </div>
+  </section> -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
