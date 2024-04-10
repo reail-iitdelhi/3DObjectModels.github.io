@@ -4,10 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-    content="Generating Multi-hierarchy Scene Graphs for Human-instructed Manipulation Tasks in Open-world Settings">
-  <meta name="keywords" content="Scene Graph">
+    content="Incorporating Foundation Model Priors in Modeling Novel Objects for Robot Instruction Following in Unstructured Environments">
+  <meta name="keywords" content="3D Model Reconstruction, Guided Filtering, Foundation Models">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SceneGraph</title>
+  <title>3D-Object-Modelling</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -32,15 +32,15 @@
         <div class="container is-max-desktop">
           <div class="columns is-centered">
             <div class="column has-text-centered">
-              <h1 class="title is-1 publication-title">Generating Multi-hierarchy Scene Graphs for Human-instructed Manipulation Tasks in Open-world Settings</h1>
+              <h1 class="title is-1 publication-title">Incorporating Foundation Model Priors in Modeling Novel Objects for Robot Instruction Following in Unstructured Environments</h1>
               <!-- h3 class="title is-4 conference-authors" style="color: rgb(0, 102, 255);">......</h3 -->
               <div class="is-size-5 publication-authors" , style="margin-bottom: 5mm;">
                 <span class="author-block">
-                  Sandeep S. Zachariah<sup>1*</sup>,</span>
+                  Moksh Malhotra<sup>1</sup>,</span>
                 <span class="author-block">
                   Aman Tambi<sup>1*</sup>,</span>
                 <span class="author-block">
-                  Moksh Malhotra<sup>1</sup>,</span>
+                  Sandeep S. Zachariah<sup>1*</sup>,</span>
                 <span class="author-block">
                   P. V. M. Rao<sup>1</sup>,</span>
                 <span class="author-block">
@@ -119,26 +119,34 @@
       <h2 class="title has-text-centered is-3">Abstract</h2>
       <div class="columns is-centered is-vcentered" , padding-left: 7%;">
         <!-- Image Column -->
-        <div>
-          <img src="./static/images/motivation_diagram.png"/>
+        <div style="text-align: center;">
+          <img src="./static/images/naive_vs_our_approach_motivation_v2.jpg"  style="max-width: 70%; margin: 0 auto;" />
         </div>
         <!-- Text Column -->
         </div>
       <div class="content is-four-fifths has-text-justified">
         <p>
-          For generating viable multi-step plans in robotics, 
-          it is necessary to have a representation scheme for scenes that
-          is both open-set and structured in a way that facilitates local
-          updates when the scene changes. We propose a method for
-          generating open-world multi-perspective scene graphs using
-          foundation models, which can support downstream planning
-          tasks. We demonstrate that our method yields superior re-
-          sults compared to previous works in both open-world object
-          detection and relation extraction, even without any priors.
-          Moreover, we illustrate how the multi-perspective nature of
-          the scene graph aids the planner in devising feasible plans for
-          tasks necessitating reasoning over the spatial arrangements and
-          object category abstractions.
+          This paper addresses the challenge of acquiring object models to 
+          facilitate task execution in unstructured, unknown environments. 
+          Illustrated through the scenario of commanding a robot to explore 
+          unfamiliar terrain and interact with objects, the necessity of a 
+          metric-semantic representation of the environment becomes apparent. 
+          Such representation not only identifies present objects but also 
+          maintains their geometric attributes for future interactions, 
+          such as manipulation or relocation. Handling large, unfamiliar objects, 
+          like trusses or tree branches, necessitates intricate reasoning in 
+          grasping, transport, and placement phases, posing a significant 
+          challenge for a versatile manipulation agent. The paper proposes 
+          an approach that integrates prior knowledge from pre-trained models 
+          with real-time data to generate detailed object models, essential 
+          for sequential manipulation tasks. This method involves utilizing 
+          pre-trained Vision-and-Language Models (VLMs) to extract object masks 
+          from raw point clouds and integrating depth priors from foundation models 
+          for improved geometric accuracy. Furthermore, the approach includes 
+          mechanisms for building local maps and local repairs over sequential 
+          action execution. Experimental results demonstrate the effectiveness 
+          of the proposed approach in acquiring high-quality 3D object models 
+          compared to alternative methods for unstructured scenarios.
         </p>
       </div>
       
@@ -150,123 +158,97 @@
       <div class="hero-body">
         <h2 class="title is-3 has-text-centered">Approach Overview</h2>
         <div class="columns is-centered is-vcentered" , padding-left: 7%;">
+          <div class="content is-four-fifths has-text-justified"></div>
+            <p>
+              The proposed method sequentially builds the global point cloud 
+              using a sequence of posed RGBD images. A guided filter employing 
+              depth priors from foundation models is used to refine the noisy 
+              depth images. The semantic extractor detects all objects and 
+              generates the segmentation mask for each object, which is fused 
+              with the global point cloud to extract the 3D model of the objects.
+            </p>
+          </div>
           <!-- Image Column -->
           <div>
-            <img src="./static/images/pipeline.png"
+            <img src="./static/images/methodology_v2.jpg"
               />
           </div>
           <!-- Text Column -->
           </div>
         </div>
-        <!-- Subtitle Section -->
-        <!-- <div class="has-text-justified">
-          <h2 class="subtitle">
-            <span class="dnerf">PhyPlan</span> is a novel physics-informed planning framework based on accelerated
-            learning of Physical Reasoning Tasks using Physics Informed Skill Networks
-          </h2>
-        </div> -->
-      
-
-      <!-- <div class="olumns is-centered is-vcentered has-text-justified">
-        <p>
-          <b>Scene Graph pipeline:</b> (few lines about the pipeline)
-        </p>
-      </div> -->
     </div>
   </section>
 
-
-  
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Scene Graphs for Planning</h2>
-      <div id="tasks" , class="column has-text-justified">
-        <p>
-          <video id="matting-video" controls playsinline height="100%" style="border-radius: 25px;">
-            <source src="./static/video/plan_rollout.mp4" type="video/mp4">
-          </video>
-        </p>
-      </div>
-      <hr>
-      <!-- <div class="columns is-multiline">
-        <div class="column is-centered is-half">
-          <div class="content">
-            <h3 class="title is-4 has-text-centered">Hierarchical Scene Graph</h3>
-            <p class="has-text-justified">Robot uses the Hierarchical nature of the scene graph to locally update the scene
-              after the execution of an action. (The following video is a placeholder, will be updating it)
-            </p>
-            <video id="matting-video" controls playsinline height="100%" style="border-radius: 25px;">
-              <source src="./static/video/launch.mp4" type="video/mp4">
-            </video>
-            <p class="teaser has-text-justified">
-              Here the robot was update the location and the spatio-depth relations of the objects inside basket after it was pushed to the side.
-            </p>
-          </div>
-        </div>
-
-        <div class="column is-centered is-half">
-          <div class="content">
-            <h3 class="title is-4 has-text-centered">Object Abstraction</h3>
-            <p class="has-text-justified">Robot uses the category abstraction nature of the scene graph to generate plans from 
-              indirect language instructions.(The following video is a placeholder, will be updating it)
-            </p>
-            <video id="matting-video" controls playsinline height="100%" style="border-radius: 25px;">
-              <source src="./static/video/slide.mp4" type="video/mp4">
-            </video>
-            <p class="teaser has-text-justified">
-              Beacuse the scene graph supports category abstraction, the planner was able to generate a plan for the language
-              "remove all the fruits".
-            </p>
-          </div>
-        </div>
-
-       
-        </div>
-      </div> -->
-    </div>
-  </section>
 
   <section class="section">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Results</h2>
-      <h3 class="title is-4">Multi-hierarchical Scene Graphs</h3>
-      <div class="column has-text-justified">
-        <p>
-          The figure shows the scene graph that was generated by our approach for the given robot workspace. The
-          scene graph has 3 perspectives to it - spatio-depth relations, planar relations, and category-wise abstraction. Each node in the scene graph represents an
-          object in the workspace and has attributes such as color and pose. This scene graph supports the execution of tasks like “place the book that is to the right
-          of the basket on the rack”(requires knowledge about the planar relation between the books and the basket and also the ‘onTop’ relation between book and
-          glasses to generate viable plans), “give me something to eat”(requires object category abstraction).
-        </p>
+      <h3 class="title is-4">3D Object Models</h3>
+
+      <div class="container is-max-desktop">
+        <div class="columns">
+          <!-- First Column -->
+          <div class="column">
+            <h3 class="subtitle is-4">Qualitative Comparision</h3>
+            <div class="image-container">
+              <img src="./static/images/3D_models _Qualitative_analysis.png" alt="Image 1">
+            </div>
+            <div class="text-container">
+              <p>he proposed
+                method, which utilizes depth priors, produces more accurate
+                and complete 3D object models in relation to the unfiltered
+                approach. Specifically, the resulting models show lower noise
+                reduction, smooth surfaces, and capture structural informa-
+                tion, which is lacking in the unfiltered method (directly masking raw point cloud).
+                (Ignore the colors)</p>
+            </div>
+          </div>
+
+          <!-- Second Column -->
+          <div class="column">
+            <h3 class="subtitle is-4">Quantitative Analysis</h3>
+            <div class="image-container">
+              <img src="./static/images/Accuracy_n_RMSE.png" alt="Image 2">
+            </div>
+            <div class="text-container">
+              <p>We quantitatively evaluate our method using two metrics:
+                (i) Root Mean Squared Error (RMSE): RMSE quantifies the
+                root mean squared distance of each point in the reconstructed
+                model to the nearest point in the ground truth. Results indi-
+                cate that the proposed approach has a lower error compared
+                to the unfiltered approach with respect to the ground truth.
+                (ii) Model Reconstruction Accuracy (MRA): MRA quantifies
+                the percentage of points in the reconstructed model that
+                are within a distance d to the nearest point in the ground
+                truth. Results indicate that the proposed method has a higher
+                Model Reconstruction Accuracy compared to the unfiltered
+                approach, meaning that a higher percentage of points of the
+                reconstructed model are within tolerance d from the ground
+                truth.</p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="content">
-        <h3 class="title is-4 has-text-centered"><span class="dnerf"></span></h3>
-        <div class="columns is-centered is-vcentered" , padding-left: 7%;">
-          <!-- Image Column -->
-          <div>
-            <img src="./static/images/sg_qualitative_result.png"
-              />
-          </div>
-          <!-- Text Column -->
-          </div>
-      </div>
-      <h3 class="title is-4">Qualitative Comparison with Baselines</h3>
-      <div class="column has-text-justified">
-        <p>
-          The following figure shows the scene graphs generated by both the proposed method and ConceptGraph, alongside the ground truth scene graph.
-        </p>
-      </div>
-      <div class="content">
-        <h3 class="title is-4 has-text-centered"><span class="dnerf"></span></h3>
-        <div class="is-centered" , style="text-align: center; padding-left: 7%;">
-          <!-- Image Column -->
-          <div>
-            <img src="./static/images/qualitative_analysis.png", width="45%", height="auto"
-               />
-          </div>
-          <!-- Text Column -->
-          </div>
-      </div> 
+      
+      <br>
+      <br>
+      <h3 class="title is-4">Local Scene Update Post Action Execution</h3>
+      <br>
+      <div class="columns is-centered is-vcentered" , padding-left: 7%;">
+        <!-- Image Column -->
+        <div>
+          <img src="./static/images/3d_construction_plan_rollout.drawio_compress.png"
+            />
+        </div>
+        <!-- Text Column -->
+        </div>
+        <div class="content is-four-fifths has-text-justified"></div>
+          <p>
+            Visualization of the plan rollout and scene reconstruction for a scenario involving occlusion. Red arrows indicate the pose update of the object,
+            while blue arrows represent local scene reconstruction. Initially, only the briefcase was visible. Upon removing the briefcase and subsequent local rebuilding,
+            the hose was detected. The figure also demonstrates how the scene is updated when the object is manipulated without requiring global scene reconstruction.
+          </p>
+        </div>
       </div>
     </div>
   </section>
